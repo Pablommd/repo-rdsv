@@ -8,8 +8,8 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - name: ssh-exporter
-      port: {{ .Values.service.port "port"}}
-      targetPort: {{ .Values.service.port "targetPort"}}
-      nodePort: {{ .Values.service.port "nodePort"}}
+      port: {{ index .Values.service.ports 0 "port"}}
+      targetPort: {{ index .Values.service.ports 0 "targetPort"}}
+      nodePort: {{ index .Values.service.ports 0 "nodePort"}}
   selector:
     {{- include "accesschart.selectorLabels" . | nindent 4 }}

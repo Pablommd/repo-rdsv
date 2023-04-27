@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: NodePort
-  port:
+  ports:
     - name: ssh-exporter
       port: 22
       targetPort: 22
