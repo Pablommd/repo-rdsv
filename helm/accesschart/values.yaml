@@ -38,8 +38,12 @@ securityContext: {}
 
 service:
   type: NodePort
-  port: 80
-
+  port:
+    - name: ssh-exporter
+      port: 22
+      targetPort: 22
+      nodePort: 32300
+  
 ingress:
   enabled: false
   className: ""
